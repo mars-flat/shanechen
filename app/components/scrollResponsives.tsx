@@ -11,11 +11,13 @@ export function ScrollOpacityChange({
   initialOpacity?: number;
   children?: React.ReactNode; 
 }) {
-  const [scrollY, setScrollY] = useState(window.scrollY);
+  const [scrollY, setScrollY] = useState(0);
   const [opacity, setOpacity] = useState(initialOpacity ?? 1);
 
   // add event listeners
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const updateScroll = async () => {
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);

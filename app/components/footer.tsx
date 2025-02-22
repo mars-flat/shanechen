@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Copyright from "./copyright";
 import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
@@ -10,7 +9,7 @@ export default function Footer() {
           <h1 className="font-bold text-4xl mb-[5%]">Contact</h1>
           <p className="max-sm:w-full text-xl mb-[10%]">Connect with me using the social links on the right or email
             me at <a href="mailto:zshanechen@gmail.com" className="text-green-600">zshanechen@gmail.com</a>.</p>
-          <p className="text-sm max-md:hidden">The 'z' stands for Zhiyuan, my Chinese name, and saves me from the tragic fate of using numbers.</p>
+          <p className="text-sm max-md:hidden">The &apos;z&apos; stands for Zhiyuan, my Chinese name, and saves me from the tragic fate of using numbers.</p>
         </div>
 
         <div className="h-[60%] w-[35%] p-4 flex text-xl flex-col justify-between items-end">
@@ -36,7 +35,9 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <Copyright />
+      <div className="w-full text-gray-400 text-center">
+        Copyright © 2025 Shane Chen
+      </div>
     </div>
   );
 }

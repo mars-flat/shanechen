@@ -10,11 +10,11 @@ export default function HomePage() {
       <Header />
       <div className="h-[70vh] bg-lime-100 font-inter text-black flex justify-center items-center">
         <div className="w-[45%] h-[50%]">
-          <p className="text-xl mb-[1%]">Nice to meet you! I'm</p>
+          <p className="text-xl mb-[1%]">Nice to meet you! I&apos;m</p>
           <p className="text-6xl font-bold mb-[2%]">Shane Chen.</p>
-          <p className="text-lg">I'm a <strong>computer science</strong> student at the <em>University of Waterloo</em>, class of 2029.</p>
+          <p className="text-lg">I&apos;m a <strong>computer science</strong> student at the <em>University of Waterloo</em>, class of 2029.</p>
           <p className="max-sm:hidden text-lg mb-[2%]">You may be interested in my resume or my projects.</p>
-          <p className="max-sm:hidden text-lg">I'm currently looking for <strong>summer 2025</strong> internships. Let's have a chat!</p>
+          <p className="max-sm:hidden text-lg">I&apos;m currently looking for <strong>summer 2025</strong> internships. Let&apos;s have a chat!</p>
         </div>
         <div className="w-[20%]">
           <Image
