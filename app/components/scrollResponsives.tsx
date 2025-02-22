@@ -7,7 +7,7 @@ export function ScrollOpacityChange({
   initialOpacity,
   children
 }: { 
-  changeFunction: (scrollY: number) => Promise<number>;
+  changeFunction: (scrollY: number) => number;
   initialOpacity?: number;
   children?: React.ReactNode; 
 }) {
@@ -18,10 +18,10 @@ export function ScrollOpacityChange({
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const updateScroll = async () => {
+    const updateScroll = () => {
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);
-      setOpacity(await changeFunction(currentScrollY));
+      setOpacity(changeFunction(currentScrollY));
     }
 
     window.addEventListener("scroll", updateScroll);

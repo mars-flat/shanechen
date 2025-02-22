@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image";
 import Header from "./components/header";
 import Footer from "./components/footer";
@@ -58,7 +60,6 @@ export default function HomePage() {
 }
 
 // should return a number between 0 and 1
-async function scroll(scrollY : number) {
-  'use server'
+function scroll(scrollY : number) {
   return Math.max(0, 0.75-(scrollY/400));
 }
