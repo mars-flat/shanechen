@@ -38,8 +38,9 @@ export default function HomePage() {
       </div>
       <div className="h-[100vh] bg-purple-100 flex flex-col justify-between items-center">
         <div className="h-[15%] flex items-center">
-          <p className="text-5xl font-bold">Projects</p>
+          <p className="text-5xl font-bold">Projects (coming soon)</p>
         </div>
+        {/* 
         <div className="w-[65%] h-[15%] border-2">
           <p className="text-lg">I've had the pleasure of working at Project Metropolis, where I developed a mobile app for students to track announcements and events.</p>
           <p className="text-lg">I've also explored data science, backend and database dev, and cybersecurity.</p>
@@ -49,6 +50,7 @@ export default function HomePage() {
 
         </div>
         <div className="h-[10%]">More projects can be found on the projects page or on my GitHub!</div>
+        */}
       </div>
       <div id="footer"><Footer /></div>
     </div>
