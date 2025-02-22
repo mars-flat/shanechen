@@ -5,7 +5,7 @@ export default function Header() {
     <div className="h-[10vh] sticky top-0">
       <div className="h-full bg-green-800 font-mono text-lg text-white font-bold p-[1%] flex justify-center">
         <div className="w-[90%] h-full flex justify-between items-center">
-          <Link href="/">Home</Link>
+          <Link href="/">Shane Chen</Link>
           <div className="w-[30%]">
             <ul className="flex justify-between">
               <li><Link href="/about">Projects</Link></li>
