@@ -24,18 +24,18 @@ export default function Header() {
 
           <div className="max-md:hidden md:w-[40%] lg:w-[30%] xl:w-[20%]">
             <ul className="flex justify-between flex-wrap items-center">
-              <li><Link href="/projects" className="hover:text-xl">Projects</Link></li>
+              <li><Link href="#projects" className="hover:text-xl">Projects</Link></li>
               <li><Link href="/resume-website.pdf" className="hover:text-xl" target="_blank">Résumé</Link></li>
-              <li><Link href="#footer" className="hover:text-xl">Contact</Link></li>
+              <li><Link href="#contact" className="hover:text-xl">Contact</Link></li>
             </ul>
           </div>
 
           {isMenuOpen &&
             <div className={`max-md:block md:hidden absolute top-[10vh] left-0 w-full bg-linear-to-b/longer from-black to-lime-100 text-white`}>
               <ul className="h-[15vh] w-[90%] flex flex-col items-end">
-                <li><Link href="/about" className="hover:text-xl mb-2">Projects</Link></li>
+                <li><Link href="#projects" className="hover:text-xl mb-2">Projects</Link></li>
                 <li><Link href="/resume-website.pdf" className="hover:text-xl mb-2" target="_blank">Résumé</Link></li>
-                <li><Link href="#footer" className="hover:text-xl">Contact</Link></li>
+                <li><Link href="#contact" className="hover:text-xl">Contact</Link></li>
               </ul>
             </div>
           }

@@ -32,7 +32,7 @@ export default function HomePage() {
           />
         </div>
       </div>
-      <div className="h-[30vh] bg-linear-to-b/oklab from-lime-100 to-purple-200 flex justify-center">
+      <div id="projects" className="h-[30vh] bg-linear-to-b/oklab from-lime-100 to-purple-200 flex justify-center">
         
         <ScrollOpacityChange changeFunction={scroll} initialOpacity={0.75}>
           <div className="flex flex-col items-center justify-center">
@@ -45,7 +45,7 @@ export default function HomePage() {
 
       <div className="h-260 bg-purple-200 flex flex-col items-center text-black">
         <div className="h-[15%] flex items-center">
-          <ScrollOpacityChange changeFunction={titleScroll} initialOpacity={0}>
+          <ScrollOpacityChange changeFunction={titleScroll}>
             <p className="text-5xl font-bold">Portfolio</p>
           </ScrollOpacityChange>
         </div>
@@ -64,7 +64,7 @@ export default function HomePage() {
             imageUrl="/mobile-resized.jpg" imageHeight={936} imageWidth={1169}
             title="Project Metropolis: Mobile" link="https://maclyonsden.com/app"
             subtitle="An app for news and events at WLMCI"
-            desc="During the pandemic, school announcements were a mess, and I had a burning passion to fix it. As part of Project Metropolis, the official school website team, I helped build, and later lead the development of a mobile app that centralized announcements and events. Using React Native for cross-platform support, the app has grown to over 800 users on iOS and Android!">
+            desc="During the pandemic, school announcements were a mess, and I had a burning passion to fix it. As part of Project Metropolis, the official school website team, I helped build, and later lead the development of a mobile app that put news and events on your phone. Using React Native for cross-platform support, the app has grown to over 800 users on iOS and Android!">
               <FaReact className="text-5xl"/>
               <SiTypescript className="text-5xl"/>
               <SiExpo className="text-5xl"/>
@@ -81,7 +81,7 @@ export default function HomePage() {
         </div>
         <div className="h-[10%] flex flex-col justify-center">More projects can be found on my GitHub!</div>
       </div>
-      <div id="footer"><Footer /></div>
+      <div id="contact"><Footer /></div>
     </div>
   );
 }
