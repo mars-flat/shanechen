@@ -1,5 +1,6 @@
 'use client'
 
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export default function TestPage() {
@@ -20,12 +21,8 @@ export default function TestPage() {
           width: `calc(50vw + ${Math.min(scrollY, 100) * 0.5}px)`, // Adjust width on scroll
         }}
       >
-        <h1 className="text-3xl font-semibold">Welcome to My Page</h1>
-      </div>
-
-      {/* Second Section: Just a placeholder */}
-      <div className="h-[200vh] bg-gradient-to-b from-green-300 to-gray-100 flex justify-center items-center">
-        <p className="text-lg">Scroll down to see the effect!</p>
+        <h1 className="text-3xl font-semibold">Coming soon!</h1>
+        <Link href="/" className="hover:text-xl">Home</Link>
       </div>
     </div>
   );

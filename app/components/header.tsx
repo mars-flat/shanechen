@@ -11,7 +11,7 @@ export default function Header() {
   };
 
   return (
-    <div className="h-[10vh] md:sticky top-0">
+    <div className="h-[10vh] md:sticky top-0 z-100">
       <div className="h-full bg-black text-lg text-white font-bold p-[1%] flex justify-center">
         <div className="w-[85%] h-full flex justify-between items-center">
           <Link href="/">Shane Chen</Link>
@@ -23,8 +23,8 @@ export default function Header() {
           </div>
 
           <div className="max-md:hidden md:w-[40%] lg:w-[30%] xl:w-[20%]">
-            <ul className="flex justify-between flex-wrap">
-              <li><Link href="/about" className="hover:text-xl">Projects</Link></li>
+            <ul className="flex justify-between flex-wrap items-center">
+              <li><Link href="/projects" className="hover:text-xl">Projects</Link></li>
               <li><Link href="/resume-website.pdf" className="hover:text-xl" target="_blank">Résumé</Link></li>
               <li><Link href="#footer" className="hover:text-xl">Contact</Link></li>
             </ul>

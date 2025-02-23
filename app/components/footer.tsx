@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
@@ -8,7 +7,7 @@ export default function Footer() {
         <div className="h-[80%] w-[35%] max-sm:w-[50%] p-4">
           <h1 className="font-bold text-4xl mb-[5%]">Contact</h1>
           <p className="max-sm:w-full text-xl mb-[10%]">Connect with me using the social links on the right or email
-            me at <a href="mailto:zshanechen@gmail.com" className="text-green-600">zshanechen@gmail.com</a>.</p>
+            me at <a href="mailto:zshanechen@gmail.com" className="text-green-400">zshanechen@gmail.com</a>.</p>
           <p className="text-sm max-md:hidden">The &apos;z&apos; stands for Zhiyuan, my Chinese name, and saves me from the tragic fate of using numbers.</p>
         </div>
 
