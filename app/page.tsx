@@ -65,7 +65,7 @@ export default function HomePage() {
           </ScrollOpacityChange>
         </div>
         
-        <div className="w-[95%] h-[85%] flex justify-evenly align-center flex-nowrap overflow-x-auto snap-x snap-mandatory">
+        <div className="w-[95%] h-[85%] flex justify-evenly align-center flex-nowrap overflow-x-auto snap-x snap-mandatory max-lg:px-[40%]">
           <ProjectCard
             imageUrl="/match-resized.png" imageHeight={709} imageWidth={964}
             title="MatchMadeIn.Tech" link="https://devpost.com/software/loveatfirst-tech"
@@ -94,9 +94,9 @@ export default function HomePage() {
               <FaReact className="text-5xl"/>
           </ProjectCard>
         </div>
-        <div className={`h-[10%] flex items-center justify-center font-bold ${montserrat.className}`}>
+        <div className={`h-[10%] flex items-center justify-center`}>
           <p>More projects can be found on my&nbsp;</p>
-          <Link href="https://www.github.com/mars-flat" className="text-gray-600"> GitHub</Link>!</div>
+          <Link href="https://www.github.com/mars-flat" className="text-gray-600"> GitHub</Link>.</div>
       </div>
       <div id="contact"><Footer font={montserrat}/></div>
     </div>

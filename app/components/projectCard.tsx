@@ -30,7 +30,7 @@ export default function ProjectCard({
   children?: React.ReactNode;
 }) {
   return (
-    <div className="shrink-0 w-[55vh] h-full relative flex justify-center items-center group snap-center snap-always">
+    <div className="shrink-0 w-[50vh] h-full relative flex justify-center items-center group snap-center snap-always">
 
       <div className="h-[200px] absolute top-0 left-0 bg-lime-50 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none drop-shadow-xl">
       </div>

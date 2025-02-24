@@ -18,3 +18,11 @@ body {
   background: var(--background);
   font-family: Inter var,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
 }
+
+.h-overflow {
+  overflow-x: auto;
+  white-space: nowrap;
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+}
