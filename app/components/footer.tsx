@@ -1,6 +1,7 @@
 import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
+import { NextFont } from "next/dist/compiled/@next/font";
 
-export default function Footer() {
+export default function Footer({ font } : { font: NextFont }) {
   return (
     <div className="h-[50vh] bg-black p-[2%] flex flex-col items-center">
       <div className="w-full h-[80%] text-white p-[1%] flex justify-center">
