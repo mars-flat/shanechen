@@ -15,7 +15,7 @@ export default function Header({ font } : { font: NextFont }) {
     <div className="h-[10vh] md:sticky top-0 z-100">
       <div className={`h-full bg-black text-lg text-white ${font.className} p-[1%] flex justify-center`}>
         <div className="w-[85%] h-full flex justify-between items-center">
-          <Link href="/">Shane Chen</Link>
+          <Link href="/" className="text-xl hover:text-2xl transition-text duration-200">Shane Chen</Link>
 
           <div className="max-md:block hidden">
             <button onClick={toggleMenu} className="text-white text-2xl">
@@ -25,9 +25,9 @@ export default function Header({ font } : { font: NextFont }) {
 
           <div className="max-md:hidden md:w-[40%] lg:w-[30%] xl:w-[25%]">
             <ul className="flex justify-between flex-wrap items-center">
-              <li><Link href="#projects" className="hover:text-xl">Projects</Link></li>
-              <li><Link href="/resume.pdf" className="hover:text-xl" target="_blank">Résumé</Link></li>
-              <li><Link href="#contact" className="hover:text-xl">Contact</Link></li>
+              <li><Link href="#projects" className="hover:text-xl transition-text duration-200">Projects</Link></li>
+              <li><Link href="/resume.pdf" className="hover:text-xl transition-text duration-200" target="_blank">Résumé</Link></li>
+              <li><Link href="#contact" className="hover:text-xl transition-text duration-200">Contact</Link></li>
             </ul>
           </div>
 

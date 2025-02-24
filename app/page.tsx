@@ -12,6 +12,7 @@ import { FaChevronDown, FaGithub, FaPython, FaReact } from "react-icons/fa";
 import { SiDjango, SiExpo, SiGraphql, SiPostgresql, SiTypescript } from "react-icons/si";
 
 import { Montserrat } from "next/font/google";
+import Link from "next/link";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -29,7 +30,12 @@ export default function HomePage() {
           <p className="text-xl mb-[1%]">Hello! I&apos;m</p>
           <p className={`text-6xl font-bold mb-[2%]`}>Shane Chen.</p>
           <p className="text-lg">I&apos;m a <strong>computer science</strong> student at the <em>University of Waterloo</em>, class of 2029.</p>
-          <p className="max-sm:hidden text-lg mb-[2%]">You may be interested in my resume or my projects.</p>
+          <p className="max-sm:hidden text-lg mb-[2%]">
+            You may be interested in my 
+            <Link href="/resume.pdf" target="_blank" className="text-purple-800"> resume </Link>
+            or my 
+            <Link href="#projects" className="text-purple-800"> projects</Link>
+            .</p>
           <p className="max-sm:hidden text-lg">I&apos;m currently looking for <strong>summer 2025</strong> internships. Let&apos;s have a chat!</p>
         </div>
         <div className="w-[20%]">
@@ -42,8 +48,7 @@ export default function HomePage() {
           />
         </div>
       </div>
-      <div id="projects" className="h-[30vh] bg-linear-to-b/oklab from-lime-100 to-purple-200 flex justify-center">
-        
+      <div className="h-[30vh] bg-linear-to-b/oklab from-lime-100 to-purple-200 flex justify-center">
         <ScrollOpacityChange changeFunction={scroll} initialOpacity={0.5}>
           <div className="flex flex-col items-center justify-center">
             <span className={`text-xl font-bold text-black ${montserrat.className}`}>scroll down to see my portfolio</span>
@@ -53,7 +58,7 @@ export default function HomePage() {
 
       </div>
 
-      <div className="h-250 bg-purple-200 flex flex-col items-center text-black">
+      <div id="projects" className="h-250 bg-purple-200 flex flex-col items-center text-black">
         <div className="h-[15%] flex items-center">
           <ScrollOpacityChange changeFunction={titleScroll}>
             <p className={`text-5xl font-bold ${montserrat.className}`}>Portfolio</p>
@@ -64,7 +69,7 @@ export default function HomePage() {
           <ProjectCard
             imageUrl="/match-resized.png" imageHeight={709} imageWidth={964}
             title="MatchMadeIn.Tech" link="https://devpost.com/software/loveatfirst-tech"
-            subtitle=" Match with GitHub users who code like you"
+            subtitle="Find GitHub users who code like you"
             desc="Ever wondered who your programming soulmate is? With MatchMadeIn.Tech, you can find GitHub users who match your commit habits and language expertise. I designed an efficient GraphQL query to extract thousands of users for our dataset, and contributed to the matching API, which uses K-means clustering. This project won best use of GitHub at Hack the North X!">
               <FaGithub className="text-5xl"/>
               <FaPython className="text-5xl"/>
@@ -82,14 +87,16 @@ export default function HomePage() {
           <ProjectCard
             imageUrl="/faceoff-resized.jpg" imageHeight={401} imageWidth={539}
             title="Faceoff Fantasy" link="https://github.com/AAZZAZRON/faceoffantasy"
-            subtitle="A custom fantasy hockey (NHL) platform"
+            subtitle="A custom fantasy hockey platform"
             desc="Fantasy hockey doesn't have to end after the regular season! With Faceoff fantasy, pick the players you think will gain the most points during playoff season and compete with other teams in your league. I built a fully customizable league system, with an easy way to invite other players and keep the competition going through the entire playoffs.">
               <SiDjango className="text-5xl"/>
               <SiPostgresql className="text-5xl"/>
               <FaReact className="text-5xl"/>
           </ProjectCard>
         </div>
-        <div className="h-[10%] flex flex-col justify-center">More projects can be found on my GitHub!</div>
+        <div className={`h-[10%] flex items-center justify-center font-bold ${montserrat.className}`}>
+          <p>More projects can be found on my&nbsp;</p>
+          <Link href="https://www.github.com/mars-flat" className="text-gray-600"> GitHub</Link>!</div>
       </div>
       <div id="contact"><Footer font={montserrat}/></div>
     </div>
