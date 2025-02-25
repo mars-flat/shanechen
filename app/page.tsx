@@ -8,7 +8,7 @@ import { ScrollOpacityChange } from "./components/scrollResponsives";
 import ProjectCard from "./components/projectCard";
 
 import { FiChevronDown } from "react-icons/fi";
-import { FaChevronDown, FaGithub, FaPython, FaReact } from "react-icons/fa";
+import { FaGithub, FaPython, FaReact } from "react-icons/fa";
 import { SiDjango, SiExpo, SiGraphql, SiPostgresql, SiTypescript } from "react-icons/si";
 
 import { Montserrat } from "next/font/google";
@@ -19,7 +19,7 @@ const montserrat = Montserrat({
   weight: ["400", "700"],
   style: ["normal", "italic"],
   display: "swap",
-})
+});
 
 export default function HomePage() {
   return (
@@ -58,15 +58,15 @@ export default function HomePage() {
 
       </div>
 
-      <div id="projects" className="h-250 bg-purple-200 flex flex-col items-center text-black">
+      <div id="projects" className="h-240 bg-purple-200 flex flex-col items-center text-black">
         <div className="h-[15%] flex items-center">
           <ScrollOpacityChange changeFunction={titleScroll}>
             <p className={`text-5xl font-bold ${montserrat.className}`}>Portfolio</p>
           </ScrollOpacityChange>
         </div>
         
-        <div className="w-[95%] h-[85%] flex justify-evenly align-center flex-nowrap overflow-x-auto snap-x snap-mandatory max-lg:px-[40%]">
-          <ProjectCard
+        <div className="w-[95%] h-[85%] flex justify-evenly xl:justify-center align-center flex-nowrap overflow-x-auto snap-x snap-mandatory max-lg:px-[40%]">
+          <ProjectCard id={1}
             imageUrl="/match-resized.png" imageHeight={709} imageWidth={964}
             title="MatchMadeIn.Tech" link="https://devpost.com/software/loveatfirst-tech"
             subtitle="Find GitHub users who code like you"
@@ -75,7 +75,7 @@ export default function HomePage() {
               <FaPython className="text-5xl"/>
               <SiGraphql className="text-5xl"/>
           </ProjectCard>
-          <ProjectCard
+          <ProjectCard id={2}
             imageUrl="/mobile-resized.jpg" imageHeight={936} imageWidth={1169}
             title="Metropolis: Mobile" link="https://maclyonsden.com/app"
             subtitle="An app for news and events at WLMCI"
@@ -84,7 +84,7 @@ export default function HomePage() {
               <SiTypescript className="text-5xl"/>
               <SiExpo className="text-5xl"/>
           </ProjectCard>
-          <ProjectCard
+          <ProjectCard id={3}
             imageUrl="/faceoff-resized.jpg" imageHeight={401} imageWidth={539}
             title="Faceoff Fantasy" link="https://github.com/AAZZAZRON/faceoffantasy"
             subtitle="A custom fantasy hockey platform"
