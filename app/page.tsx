@@ -79,7 +79,7 @@ export default function HomePage() {
             imageUrl="/mobile-resized.jpg" imageHeight={936} imageWidth={1169}
             title="Metropolis: Mobile" link="https://maclyonsden.com/app"
             subtitle="An app for news and events at WLMCI"
-            desc="During the pandemic, school announcements were a mess, and I had a burning passion to fix it. As part of Project Metropolis, the official school website team, I helped build, and later lead the development of a mobile app that put news and events on your phone. Using React Native for cross-platform support, the app has grown to over 800 users on iOS and Android!">
+            desc="During the pandemic, school announcements were a mess, and I had a burning desire to fix that. As part of Project Metropolis, the website team under the school admin, I helped build, and later lead the development of a mobile app that put news and events on your phone. Using React Native for cross-platform support, the app has grown to over 800 users on iOS and Android!">
               <FaReact className="text-5xl"/>
               <SiTypescript className="text-5xl"/>
               <SiExpo className="text-5xl"/>
