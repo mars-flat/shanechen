@@ -1,0 +1,18 @@
+{
+  "roles": [
+    {
+      "title": "Software Developer Intern",
+      "company": "Poket Data Collection",
+      "timeline": "May 2025 - August 2025",
+      "link": "https://www.poketapp.com",
+      "image": "poket.jpg"
+    },
+    {
+      "title": "Mobile App Lead",
+      "company": "Project: Metropolis",
+      "timeline": "December 2021 - July 2024",
+      "link": "https://maclyonsden.com/app",
+      "image": "metropolis.jpg"
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
+import { ParallaxProvider } from "react-scroll-parallax";
+import ParallaxClientProvider from "./components/ParallaxClientProvider";
 
 export const metadata: Metadata = {
   title: "Shane Chen's Website",
@@ -19,7 +21,12 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body>{children}<Analytics /></body>
+      <body>
+        <ParallaxClientProvider>
+          {children}
+        </ParallaxClientProvider>
+        <Analytics />
+      </body>
     </html>
   );
 }

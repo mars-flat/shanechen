@@ -1,0 +1,32 @@
+{
+  "projects": [
+    {
+      "title": "Convergence",
+      "description": "Alternate Reality Game",
+      "link": "https://convergencegame.ca",
+      "image": "convergence.png",
+      "skills": ["Game Design", "React", "FastAPI", "SQLite", "WebSocket", "PostHog"]
+    },
+    {
+      "title": "Re-Prompt That",
+      "description": "LLM Reverse Engineering Game",
+      "link": "https://reprompt-that.vercel.app/",
+      "image": "reprompt-that.gif",
+      "skills": ["JavaScript", "LLM", "Vector Embeddings", "AWS EC2", "Docker", "GitHub Actions"]
+    },
+    {
+      "title": "MatchMadeIn.Tech",
+      "description": "GitHub user-matching app",
+      "link": "https://devpost.com/software/loveatfirst-tech",
+      "image": "matchmadeintech.png",
+      "skills": ["GitHub API", "GraphQL", "K-Means Clustering", "Scikit-learn", "Flask", "Postman"]
+    },
+    {
+      "title": "Faceoff Fantasy",
+      "description": "NHL fantasy app",
+      "link": "https://github.com/AAZZAZRON/faceoffantasy",
+      "image": "faceoff-fantasy.png",
+      "skills": ["React", "Redux", "PostgreSQL"]
+    }
+  ]
+}

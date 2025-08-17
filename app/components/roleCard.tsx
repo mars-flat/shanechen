@@ -1,15 +1,15 @@
 import React from "react";
 import { theme } from '../theme';
 
-interface ProjectCardProps {
+interface RoleCardProps {
   title: string;
-  description: string;
+  company: string;
+  timeline: string;
   link: string;
   image: string;
-  skills?: string[];
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, image, skills }) => (
+const RoleCard: React.FC<RoleCardProps> = ({ title, company, timeline, link, image }) => (
   <a
     href={link}
     target="_blank"
@@ -25,18 +25,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, ima
     />
     <div className="flex-1 min-w-0 pr-20">
       <div className={theme.tw.textGray900 + " font-semibold text-lg"}>{title}</div>
-      <div className={theme.tw.textGray700 + " text-sm"}>{description}</div>
-      {skills && skills.length > 0 && (
-        <div className="flex flex-wrap gap-2 mt-6">
-          {skills.map((skill, idx) => (
-            <span key={idx} className="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded font-medium border border-purple-200">
-              {skill}
-            </span>
-          ))}
-        </div>
-      )}
+      <div className={theme.tw.textGray700 + " text-sm"}>{company}</div>
+      <div className={theme.tw.textGray500 + " text-xs"}>{timeline}</div>
     </div>
   </a>
 );
 
-export default ProjectCard;
+export default RoleCard;

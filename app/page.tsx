@@ -4,15 +4,19 @@ import Image from "next/image";
 import Header from "./components/header";
 import Footer from "./components/footer";
 
-import { ScrollOpacityChange } from "./components/scrollResponsives";
+import RoleCard from "./components/roleCard";
 import ProjectCard from "./components/projectCard";
-
-import { FiChevronDown } from "react-icons/fi";
-import { FaGithub, FaPython, FaReact } from "react-icons/fa";
-import { SiDjango, SiExpo, SiGraphql, SiPostgresql, SiTypescript } from "react-icons/si";
 
 import { Montserrat } from "next/font/google";
 import Link from "next/link";
+
+import { FiChevronDown } from "react-icons/fi";
+
+import rolesData from "./data/roles.json";
+import projectsData from "./data/projects.json";
+
+import { Parallax } from 'react-scroll-parallax';
+import FadeInParallax from "./components/FadeInParallax";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -25,20 +29,22 @@ export default function HomePage() {
   return (
     <div className={`flex flex-col`}>
       <Header font={montserrat}/>
-      <div className={`h-[70vh] bg-lime-100 text-black flex justify-center items-center`}>
+      <div className={`h-[70vh] bg-lime-100/95 text-black flex justify-center items-center`}>
         <div className="w-[50%] h-[50%]">
           <p className="text-xl mb-[1%]">Hello! I&apos;m</p>
           <p className={`text-6xl font-bold mb-[2%]`}>Shane Chen.</p>
-          <p className="text-lg">I&apos;m a <strong>computer science</strong> student at the <em>University of Waterloo</em>, class of 2029.</p>
+          <p className="text-lg">I&apos;m a <strong>computer science</strong> student at the 
+          <Link href="https://uwaterloo.ca" target="_blank" className="text-purple-800"> University of Waterloo</Link>, 
+          class of 2029.</p>
           <p className="max-sm:hidden text-lg mb-[2%]">
             You may be interested in my 
             <Link href="/resume.pdf" target="_blank" className="text-purple-800"> resume </Link>
             or my 
             <Link href="#projects" className="text-purple-800"> projects</Link>
             .</p>
-          <p className="max-sm:hidden text-lg">I&apos;m currently looking for <strong>summer 2025</strong> internships. Let&apos;s have a chat!</p>
+          <p className="max-sm:hidden text-lg">I&apos;m currently open to <strong>winter 2026</strong> internships.</p>
         </div>
-        <div className="w-[20%]">
+        <div className="w-[10%]">
           <Image
             src="/me.jpg"
             alt="insert nice picture of me"
@@ -48,55 +54,46 @@ export default function HomePage() {
           />
         </div>
       </div>
-      <div className="h-[30vh] bg-linear-to-b/oklab from-lime-100 to-purple-200 flex justify-center">
-        <ScrollOpacityChange changeFunction={scroll} initialOpacity={0.5}>
+      <div id="projects" className="h-[30vh] bg-gradient-to-b from-lime-100/95 to-purple-200/95 flex justify-center">
+        <Parallax opacity={[0.75, 0]} translateY={[0, -25]} easing="easeOutQuad">
           <div className="flex flex-col items-center justify-center">
             <span className={`text-xl font-bold text-black ${montserrat.className}`}>scroll down to see my portfolio</span>
             <FiChevronDown className="text-6xl text-black" />
           </div>
-        </ScrollOpacityChange>
-
+        </Parallax>
       </div>
 
-      <div id="projects" className="h-240 bg-purple-200 flex flex-col items-center text-black">
-        <div className="h-[15%] flex items-center">
-          <ScrollOpacityChange changeFunction={titleScroll}>
-            <p className={`text-5xl font-bold ${montserrat.className}`}>Portfolio</p>
-          </ScrollOpacityChange>
+      <div className="w-full bg-purple-200/95">
+        <div className="flex flex-col text-black gap-8 p-8 max-w-7xl mx-auto">
+          <div className="flex flex-row items-start gap-8 xl:gap-32">
+            {/* Roles Column */}
+            <div className="flex-[4] flex flex-col gap-4">
+              <FadeInParallax translateYFrom={-50}>
+                <h2 className={`text-4xl font-bold mb-2 ${montserrat.className}`}>Roles</h2>
+              </FadeInParallax>
+              {rolesData.roles.map((role, idx) => (
+                <FadeInParallax key={idx}>
+                  <RoleCard {...role} />
+                </FadeInParallax>
+              ))}
+            </div>
+            {/* Projects Column */}
+            <div className="flex-[6] flex flex-col gap-4">
+              <FadeInParallax translateYFrom={-50}>
+                <h2 className={`text-4xl font-bold mb-2 ${montserrat.className}`}>Projects</h2>
+              </FadeInParallax>
+              {projectsData.projects.map((project, idx) => (
+                <FadeInParallax key={idx}>
+                  <ProjectCard {...project} />
+                </FadeInParallax>
+              ))}
+            </div>
+          </div>
+          <div className="flex items-center justify-center mt-4">
+            <p>More projects can be found on my&nbsp;</p>
+            <a href="https://www.github.com/mars-flat" className="text-gray-600" target="_blank" rel="noopener noreferrer"> GitHub</a>.
+          </div>
         </div>
-        
-        <div className="w-[95%] h-[85%] flex justify-evenly xl:justify-center align-center flex-nowrap overflow-x-auto snap-x snap-mandatory max-lg:px-[40%]">
-          <ProjectCard id={1}
-            imageUrl="/match-resized.png" imageHeight={709} imageWidth={964}
-            title="MatchMadeIn.Tech" link="https://devpost.com/software/loveatfirst-tech"
-            subtitle="Find GitHub users who code like you"
-            desc="Ever wondered who your programming soulmate is? With MatchMadeIn.Tech, you can find GitHub users who match your commit habits and language expertise. I designed an efficient GraphQL query to extract thousands of users for our dataset, and contributed to the matching API, which uses K-means clustering. This project won best use of GitHub at Hack the North X!">
-              <FaGithub className="text-5xl"/>
-              <FaPython className="text-5xl"/>
-              <SiGraphql className="text-5xl"/>
-          </ProjectCard>
-          <ProjectCard id={2}
-            imageUrl="/mobile-resized.jpg" imageHeight={936} imageWidth={1169}
-            title="Metropolis: Mobile" link="https://maclyonsden.com/app"
-            subtitle="An app for news and events at WLMCI"
-            desc="During the pandemic, school announcements were a mess, and I had a burning desire to fix that. As part of Project Metropolis, the website team under the school admin, I helped build, and later lead the development of a mobile app that put news and events on your phone. Using React Native for cross-platform support, the app has grown to over 800 users on iOS and Android!">
-              <FaReact className="text-5xl"/>
-              <SiTypescript className="text-5xl"/>
-              <SiExpo className="text-5xl"/>
-          </ProjectCard>
-          <ProjectCard id={3}
-            imageUrl="/faceoff-resized.jpg" imageHeight={401} imageWidth={539}
-            title="Faceoff Fantasy" link="https://github.com/AAZZAZRON/faceoffantasy"
-            subtitle="A custom fantasy hockey platform"
-            desc="Fantasy hockey doesn't have to end after the regular season! With Faceoff fantasy, pick the players you think will gain the most points during playoff season and compete with other teams in your league. I built a fully customizable league system, with an easy way to invite other players and keep the competition going through the entire playoffs.">
-              <SiDjango className="text-5xl"/>
-              <SiPostgresql className="text-5xl"/>
-              <FaReact className="text-5xl"/>
-          </ProjectCard>
-        </div>
-        <div className={`h-[10%] flex items-center justify-center`}>
-          <p>More projects can be found on my&nbsp;</p>
-          <Link href="https://www.github.com/mars-flat" className="text-gray-600"> GitHub</Link>.</div>
       </div>
       <div id="contact"><Footer font={montserrat}/></div>
     </div>
