@@ -17,6 +17,7 @@ import projectsData from "./data/projects.json";
 
 import { Parallax } from 'react-scroll-parallax';
 import FadeInParallax from "./components/FadeInParallax";
+import SpinnableCoin from "./components/SpinnableCoin";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -44,14 +45,8 @@ export default function HomePage() {
             .</p>
           <p className="max-sm:hidden text-lg">I&apos;m currently open to <strong>winter 2026</strong> internships.</p>
         </div>
-        <div className="w-[10%]">
-          <Image
-            src="/me.jpg"
-            alt="insert nice picture of me"
-            width={1170}
-            height={1189}
-            style={{ borderRadius: '50%' }}
-          />
+        <div id="me" className="w-[15%] flex items-center justify-center">
+          <SpinnableCoin src="/me.jpg" alt="insert nice picture of me" size={180} />
         </div>
       </div>
       <div id="projects" className="h-[30vh] bg-gradient-to-b from-lime-100/95 to-purple-200/95 flex justify-center">

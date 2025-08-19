@@ -2,10 +2,10 @@
   "projects": [
     {
       "title": "Convergence",
-      "description": "Alternate Reality Game",
+      "description": "Software for live games that bring people together",
       "link": "https://convergencegame.ca",
       "image": "convergence.png",
-      "skills": ["Game Design", "React", "FastAPI", "SQLite", "WebSocket", "PostHog"]
+      "skills": ["Game Design", "TypeScript", "Python", "SQL", "WebSocket", "PostHog"]
     },
     {
       "title": "Re-Prompt That",
@@ -16,17 +16,17 @@
     },
     {
       "title": "MatchMadeIn.Tech",
-      "description": "GitHub user-matching app",
+      "description": "Tinder for GitHub users",
       "link": "https://devpost.com/software/loveatfirst-tech",
       "image": "matchmadeintech.png",
-      "skills": ["GitHub API", "GraphQL", "K-Means Clustering", "Scikit-learn", "Flask", "Postman"]
+      "skills": ["Python", "Postman", "GraphQL", "Scikit-learn", "GitHub API"]
     },
     {
       "title": "Faceoff Fantasy",
       "description": "NHL fantasy app",
       "link": "https://github.com/AAZZAZRON/faceoffantasy",
       "image": "faceoff-fantasy.png",
-      "skills": ["React", "Redux", "PostgreSQL"]
+      "skills": ["React", "Redux", "Django", "PostgreSQL"]
     }
   ]
 }
