@@ -137,7 +137,7 @@ const SpinnableCoin: React.FC<SpinnableCoinProps> = ({ src, alt, size = 180 }) =
     const to180 = Math.abs(mod - 180);
 
     // Choose nearest face in absolute space with minimal movement
-    let targetMod = to0 <= to180 ? 0 : 180;
+    const targetMod = to0 <= to180 ? 0 : 180;
 
     // Convert back to absolute angle near current:
     // pick the equivalent target angle closest to `current`

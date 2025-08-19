@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
-import { ParallaxProvider } from "react-scroll-parallax";
 import ParallaxClientProvider from "./components/ParallaxClientProvider";
 
 export const metadata: Metadata = {

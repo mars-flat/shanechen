@@ -1,10 +1,10 @@
-import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaInstagram, FaXTwitter } from "react-icons/fa6";
 import { NextFont } from "next/dist/compiled/@next/font";
 import { theme } from '../theme';
 
 export default function Footer({ font } : { font: NextFont }) {
   return (
-    <div className={theme.tw.bgBlack + " h-[50vh] p-[2%] flex flex-col items-center"}>
+    <div className={theme.tw.bgBlack + " h-[60vh] p-[2%] flex flex-col items-center"}>
       <div className={theme.tw.textNeutral200 + " w-full h-[80%] p-[1%] flex justify-center"}>
         <div className="h-[80%] w-[35%] max-sm:w-[50%] p-4">
           <h1 className={`font-bold text-4xl mb-[5%] ${font.className}`}>Contact</h1>
@@ -21,6 +21,11 @@ export default function Footer({ font } : { font: NextFont }) {
           <div className="w-[40%] max-xl:w-[55%]">
             <a href="https://www.github.com/mars-flat" target="_blank" className="flex justify-end items-center">
               <span className="mr-[2%] max-lg:hidden">mars-flat</span><FaGithub className={theme.tw.textWhite + " text-3xl"} />
+            </a>
+          </div>
+          <div className="w-[40%] max-xl:w-[55%]">
+            <a href="https://www.x.com/shanechenz" target="_blank" className="flex justify-end items-center">
+              <span className="mr-[2%] max-lg:hidden">shanechenz</span><FaXTwitter className={theme.tw.textWhite + " text-3xl"} />
             </a>
           </div>
           <div className="w-[40%] max-xl:w-[55%]">

@@ -1,6 +1,5 @@
 'use client'
 
-import Image from "next/image";
 import Header from "./components/header";
 import Footer from "./components/footer";
 
@@ -39,17 +38,15 @@ export default function HomePage() {
           class of 2029.</p>
           <p className="max-sm:hidden text-lg mb-[2%]">
             You may be interested in my 
-            <Link href="/resume.pdf" target="_blank" className="text-purple-800"> resume </Link>
-            or my 
-            <Link href="#projects" className="text-purple-800"> projects</Link>
-            .</p>
+            <Link href="#portfolio" className="text-purple-800"> portfolio</Link>.
+            Please <Link href="#contact" className="text-purple-800">contact me</Link> for my resume.</p>
           <p className="max-sm:hidden text-lg">I&apos;m currently open to <strong>winter 2026</strong> internships.</p>
         </div>
         <div id="me" className="w-[15%] flex items-center justify-center">
           <SpinnableCoin src="/me.jpg" alt="insert nice picture of me" size={180} />
         </div>
       </div>
-      <div id="projects" className="h-[30vh] bg-gradient-to-b from-lime-100/95 to-purple-200/95 flex justify-center">
+      <div id="portfolio" className="h-[30vh] bg-gradient-to-b from-lime-100/95 to-purple-200/95 flex justify-center">
         <Parallax opacity={[0.75, 0]} translateY={[0, -25]} easing="easeOutQuad">
           <div className="flex flex-col items-center justify-center">
             <span className={`text-xl font-bold text-black ${montserrat.className}`}>scroll down to see my portfolio</span>
@@ -60,7 +57,7 @@ export default function HomePage() {
 
       <div className="w-full bg-purple-200/95">
         <div className="flex flex-col text-black gap-8 p-8 max-w-7xl mx-auto">
-          <div className="flex flex-row items-start gap-8 xl:gap-32">
+          <div className="flex flex-col gap-16 sm:flex-row sm:gap-8 xl:gap-32">
             {/* Roles Column */}
             <div className="flex-[4] flex flex-col gap-4">
               <FadeInParallax translateYFrom={-50}>
@@ -93,14 +90,4 @@ export default function HomePage() {
       <div id="contact"><Footer font={montserrat}/></div>
     </div>
   );
-}
-
-// should return a number between 0 and 1
-function scroll(scrollY : number) {
-  return Math.max(0, 0.5-(scrollY/600));
-}
-
-// should return a number between 0 and 1
-function titleScroll(scrollY : number) {
-  return Math.min(1, (scrollY-150)/600);
 }
