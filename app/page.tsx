@@ -30,7 +30,7 @@ export default function HomePage() {
     <div className={`flex flex-col`}>
       <Header font={montserrat}/>
       <div className={`h-[70vh] bg-lime-100/95 text-black flex justify-center items-center`}>
-        <div className="w-[50%] h-[50%]">
+        <div className="w-[50%] h-[50%] pr-8">
           <p className="text-xl mb-[1%]">Hello! I&apos;m</p>
           <p className={`text-6xl font-bold mb-[2%]`}>Shane Chen.</p>
           <p className="text-lg">I&apos;m a <strong>computer science</strong> student at the 
@@ -42,7 +42,7 @@ export default function HomePage() {
             Please <Link href="#contact" className="text-purple-800">contact me</Link> for my resume.</p>
           <p className="max-sm:hidden text-lg">I&apos;m currently open to <strong>winter 2026</strong> internships.</p>
         </div>
-        <div id="me" className="w-[15%] flex items-center justify-center">
+        <div id="me" className="hidden md:flex w-[15%] items-center justify-center">
           <SpinnableCoin src="/me.jpg" alt="insert nice picture of me" size={180} />
         </div>
       </div>
