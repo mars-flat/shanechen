@@ -1,11 +1,18 @@
 {
   "projects": [
     {
+      "title": "Contextual (WIP)",
+      "description": "Find and combine context chunks from your LLM chat history to seed new chats",
+      "link": "https://devpost.com/software/contextual-lpqw4m",
+      "image": "contextual.png",
+      "skills": ["React", "FastAPI", "Groq"]
+    },
+    {
       "title": "Convergence",
       "description": "Software for live games that bring people together",
       "link": "https://convergencegame.ca",
       "image": "convergence.png",
-      "skills": ["Game Design", "TypeScript", "Python", "SQL", "WebSocket", "PostHog"]
+      "skills": ["TypeScript", "Python", "SQL", "WebSocket", "PostHog", "Game Design"]
     },
     {
       "title": "Re-Prompt That",
