@@ -40,7 +40,7 @@ export default function HomePage() {
             You may be interested in my 
             <Link href="#portfolio" className="text-purple-800"> portfolio</Link>.
             Please <Link href="#contact" className="text-purple-800">contact me</Link> for my resume.</p>
-          <p className="max-sm:hidden text-lg">I&apos;m currently open to <strong>winter 2026</strong> internships.</p>
+          <p className="max-sm:hidden text-lg">I&apos;m interested in <strong>summer 2026</strong> internships.</p>
         </div>
         <div id="me" className="hidden md:flex w-[15%] items-center justify-center">
           <SpinnableCoin src="/me.jpg" alt="insert nice picture of me" size={180} />
