@@ -31,15 +31,15 @@ export default function HomePage() {
       <Header font={montserrat}/>
       <div className={`h-[70vh] bg-lime-100/95 text-black flex justify-center items-center`}>
         <div className="w-[50%] h-[50%] pr-8">
-          <p className="text-xl mb-[1%]">Hello! I&apos;m</p>
+          <p className="text-xl mb-[1%]">{`Hello! I'm`}</p>
           <p className={`text-6xl font-bold mb-[2%]`}>Shane Chen.</p>
-          <p className="text-lg">I&apos;m a <strong>computer science</strong> student at the 
-          <Link href="https://uwaterloo.ca" target="_blank" className="text-purple-800"> University of Waterloo</Link>, 
-          class of 2029.</p>
+          <p className="text-lg">{`I'm a `}<strong>computer science</strong>{` student at the `}
+          <Link href="https://uwaterloo.ca" target="_blank" className="text-purple-800">University of Waterloo</Link>
+          {`, class of 2029.`}</p>
           <p className="max-sm:hidden text-lg mb-[2%]">
-            I'm interested in full-stack development, distributed systems, and AI Applications. Check out my
-            <Link href="#portfolio" className="text-purple-800"> experiences</Link>. Scroll down!</p>
-          <p className="max-sm:hidden text-lg">I&apos;m interested in <strong>Summer 2027</strong> internships. Happy to chat!</p>
+            {`I'm interested in full-stack development, distributed systems, and AI Applications. Check out my`}
+            <Link href="#portfolio" className="text-purple-800">{` experiences`}</Link>{` below!`}</p>
+          <p className="max-sm:hidden text-lg">{`I'm interested in `}<strong>Summer 2027</strong>{` internships. Happy to chat!`}</p>
         </div>
         <div id="me" className="hidden md:flex w-[15%] items-center justify-center">
           <SpinnableCoin src="/me.jpg" alt="insert nice picture of me" size={180} />
@@ -81,7 +81,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="flex items-center justify-center mt-4">
-            <p>More projects can be found on my&nbsp;</p>
+            <p>{`More projects can be found on my `}</p>
             <a href="https://www.github.com/mars-flat" className="text-gray-600" target="_blank" rel="noopener noreferrer"> GitHub</a>.
           </div>
         </div>

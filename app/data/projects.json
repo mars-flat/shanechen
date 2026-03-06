@@ -1,11 +1,11 @@
 {
   "projects": [
     {
-      "title": "Contextual (WIP)",
-      "description": "Find and combine context chunks from your LLM chat history to seed new chats",
-      "link": "https://devpost.com/software/contextual-lpqw4m",
-      "image": "contextual.png",
-      "skills": ["React", "FastAPI", "Groq"]
+      "title": "WATonomous - Mars Rover Team",
+      "description": "Building the autonomy system for UWRT Mars rover",
+      "link": "https://github.com/WATonomous/wato_rover",
+      "image": "watonomous.jpeg",
+      "skills": ["C++", "ROS2", "Python", "Docker", "Computer Vision"]
     },
     {
       "title": "Convergence",
