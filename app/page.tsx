@@ -37,10 +37,9 @@ export default function HomePage() {
           <Link href="https://uwaterloo.ca" target="_blank" className="text-purple-800"> University of Waterloo</Link>, 
           class of 2029.</p>
           <p className="max-sm:hidden text-lg mb-[2%]">
-            You may be interested in my 
-            <Link href="#portfolio" className="text-purple-800"> portfolio</Link>.
-            Please <Link href="#contact" className="text-purple-800">contact me</Link> for my resume.</p>
-          <p className="max-sm:hidden text-lg">I&apos;m interested in <strong>summer 2026</strong> internships.</p>
+            I'm interested in full-stack development, distributed systems, and AI Applications. Check out my
+            <Link href="#portfolio" className="text-purple-800"> experiences</Link>. Scroll down!</p>
+          <p className="max-sm:hidden text-lg">I&apos;m interested in <strong>Summer 2027</strong> internships. Happy to chat!</p>
         </div>
         <div id="me" className="hidden md:flex w-[15%] items-center justify-center">
           <SpinnableCoin src="/me.jpg" alt="insert nice picture of me" size={180} />
@@ -49,7 +48,7 @@ export default function HomePage() {
       <div id="portfolio" className="h-[30vh] bg-gradient-to-b from-lime-100/95 to-purple-200/95 flex justify-center">
         <Parallax opacity={[0.75, 0]} translateY={[0, -25]} easing="easeOutQuad">
           <div className="flex flex-col items-center justify-center">
-            <span className={`text-xl font-bold text-black ${montserrat.className}`}>scroll down to see my portfolio</span>
+            <span className={`text-xl font-bold text-black ${montserrat.className}`}>experiences</span>
             <FiChevronDown className="text-6xl text-black" />
           </div>
         </Parallax>
