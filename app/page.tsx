@@ -35,7 +35,7 @@ export default function HomePage() {
           <p className={`text-6xl font-bold mb-[2%]`}>Shane Chen.</p>
           <p className="text-lg">{`I'm a `}<strong>computer science</strong>{` student at the `}
           <Link href="https://uwaterloo.ca" target="_blank" className="text-purple-800">University of Waterloo</Link>
-          {`, class of 2029.`}</p>
+          .</p>
           <p className="max-sm:hidden text-lg mb-[2%]">
             {`I'm interested in full-stack development, distributed systems, and AI Applications. Check out my`}
             <Link href="#portfolio" className="text-purple-800">{` experiences`}</Link>{` below!`}</p>
