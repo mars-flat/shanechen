@@ -1,12 +1,24 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
-import ParallaxClientProvider from "./components/ParallaxClientProvider";
 
 export const metadata: Metadata = {
   title: "Shane Chen",
-  icons: "/images/favicon.png",
-  description: "I'm a computer science student at the University of Waterloo, class of 2029. I'm currently looking for summer 2025 internships. Let's have a chat!",
+  description:
+    "Shane Chen — computer science student at the University of Waterloo, interested in full-stack development, distributed systems, and AI applications. Looking for Summer 2027 internships.",
+  icons: { icon: "/images/favicon.png" },
+  openGraph: {
+    title: "Shane Chen",
+    description:
+      "Computer science student at the University of Waterloo. Roles and projects, mapped like a subway line.",
+    type: "website",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0f0f0f",
 };
 
 export default function RootLayout({
@@ -16,14 +28,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-      </head>
       <body>
-        <ParallaxClientProvider>
-          {children}
-        </ParallaxClientProvider>
+        {children}
         <Analytics />
       </body>
     </html>

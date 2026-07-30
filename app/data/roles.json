@@ -12,7 +12,8 @@
       "company": "Shopify",
       "timeline": "May 2026 - Present",
       "link": "https://www.shopify.com",
-      "image": "shopify.png"
+      "image": "shopify.png",
+      "live": true
     },
     {
       "title": "AI Software Developer Intern",

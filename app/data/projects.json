@@ -12,7 +12,8 @@
       "description": "Software for live games that bring people together",
       "link": "https://convergencegame.ca",
       "image": "convergence.png",
-      "skills": ["TypeScript", "Python", "SQL", "WebSocket", "PostHog", "Game Design"]
+      "skills": ["TypeScript", "Python", "SQL", "WebSocket", "PostHog", "Game Design"],
+      "live": true
     },
     {
       "title": "Re-Prompt That",

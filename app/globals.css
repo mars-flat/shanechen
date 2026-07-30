@@ -1,36 +1,317 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ==========================================================================
+   Shane Chen Transit System — a NYC-subway-inspired design system.
+   Typeface: Helvetica (the MTA standard) via a zero-dependency system stack.
+   ========================================================================== */
+
+@theme {
+  --font-sans: "Helvetica Neue", Helvetica, Arial, "Nimbus Sans", sans-serif;
+
+  /* MTA signage + map paper */
+  --color-mta-black: #0f0f0f;
+  --color-mta-ink: #16181d;
+  --color-paper: #f6f5f1;
+  --color-paper-line: #e4e2da;
+
+  /* Official NYC subway route colors */
+  --color-line-green: #00933c;  /* 4·5·6  — Career (Roles) */
+  --color-line-orange: #ff6319; /* B·D·F·M — Build (Projects) */
+  --color-line-blue: #0039a6;   /* A·C·E */
+  --color-line-red: #ee352e;    /* 1·2·3 */
+  --color-line-yellow: #fccc0a; /* N·Q·R·W */
+  --color-line-purple: #b933ad; /* 7 */
+  --color-line-grey: #808183;   /* shuttle / accents */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  color-scheme: light;
 }
 
 html {
   scroll-behavior: smooth;
-  background: var(--background);
-  background-image:
-    repeating-linear-gradient(to right, #000 0, #000 2px, transparent 2px, transparent 50px),
-    repeating-linear-gradient(to bottom, #000 0, #000 2px, transparent 2px, transparent 50px);
+  background-color: var(--color-paper);
 }
 
 body {
   overflow-x: hidden;
-  color: var(--foreground);
-  background: none;
-  font-family: Inter var,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  color: var(--color-mta-ink);
+  background-color: var(--color-paper);
+  /* faint transit-map grid on the "paper" */
+  background-image:
+    linear-gradient(var(--color-paper-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-paper-line) 1px, transparent 1px);
+  background-size: 44px 44px;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-.h-overflow {
-  overflow-x: auto;
-  white-space: nowrap;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Route bullet — the classic circular MTA line marker (colored disc + letter)
+   -------------------------------------------------------------------------- */
+.route-bullet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: var(--bullet, var(--color-line-grey));
+  color: #fff;
+  font-weight: 700;
+  line-height: 1;
+  aspect-ratio: 1 / 1;
+  flex: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+/* the yellow line uses black text, per MTA */
+.route-bullet[data-ink="dark"] {
+  color: var(--color-mta-black);
+}
+
+/* --------------------------------------------------------------------------
+   Transit line — a vertical route with station stops running down its spine
+   -------------------------------------------------------------------------- */
+.transit-line {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.station {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 0.5rem;
+  padding-bottom: 2rem;
+}
+
+/* the colored rail drawn behind each station's marker */
+.station__rail {
+  position: relative;
+}
+.station__rail::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  /* extend through the station's bottom padding (plus 1px overlap) so
+     consecutive segments fuse into one seamless rail */
+  bottom: calc(-2rem - 1px);
+  width: 6px;
+  transform: translateX(-50%);
+  background: var(--line, var(--color-line-grey));
+}
+/* trim the rail so it begins/ends at the terminal markers */
+.station:first-child .station__rail::before {
+  top: 1.6rem;
+}
+.station:last-child .station__rail::before {
+  bottom: calc(100% - 1.6rem);
+}
+
+/* the station stop marker — white disc with a thick colored ring */
+.station__marker {
+  position: absolute;
+  left: 50%;
+  top: 1.6rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  background: #fff;
+  border: 5px solid var(--line, var(--color-line-grey));
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+  z-index: 1;
+  transition: transform 0.18s ease;
+}
+
+/* an ongoing ("Present") stop reads like a live train at the platform */
+.station__marker--live::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 9999px;
+  border: 3px solid var(--line, var(--color-line-grey));
+  animation: station-pulse 1.8s ease-out infinite;
+}
+
+@keyframes station-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.1);
+    opacity: 0;
+  }
+}
+
+.station:hover .station__marker {
+  transform: translate(-50%, -50%) scale(1.18);
+}
+
+/* --------------------------------------------------------------------------
+   Station card — the stop's information panel
+   -------------------------------------------------------------------------- */
+.station-card {
   display: flex;
-  width: 100%;
-  max-width: 100%;
+  gap: 0.9rem;
+  padding: 1rem 1.1rem;
+  background: #fff;
+  border: 1px solid var(--color-paper-line);
+  border-left: 6px solid var(--line, var(--color-line-grey));
+  border-radius: 0.9rem;
+  box-shadow: 0 2px 4px rgba(15, 15, 15, 0.05);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.station-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(15, 15, 15, 0.12);
+}
+
+/* transfer chips — skills rendered as line-transfer indicators */
+.transfer-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-mta-ink);
+  background: var(--color-paper);
+  border: 1px solid var(--color-paper-line);
+  border-radius: 9999px;
+}
+
+/* --------------------------------------------------------------------------
+   Hero system map — three interactive routes with 45°/90° transit geometry
+   -------------------------------------------------------------------------- */
+.hm-line {
+  cursor: pointer;
+  outline: none;
+  transition: opacity 0.4s ease, filter 0.4s ease;
+}
+.hm-line.is-dim {
+  opacity: 0.16;
+  filter: saturate(0.3);
+}
+.hm-line.is-hot .hm-path,
+.hm-line:focus-visible .hm-path {
+  stroke-width: 11;
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--hm-c) 60%, transparent));
+}
+.hm-line.is-hot .hm-label {
+  font-weight: 700;
+}
+
+.hm-path {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: butt;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: hm-draw 1.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: var(--d, 0s);
+  transition: stroke-width 0.3s ease, filter 0.3s ease;
+}
+@keyframes hm-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* wide invisible stroke so the route is easy to hover/tap */
+.hm-hit {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 30;
+  pointer-events: stroke;
+}
+
+/* stations & bullets pop in after their line is drawn */
+.hm-node {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0.2);
+  animation: hm-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: var(--d, 0s);
+}
+@keyframes hm-pop {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hm-label {
+  font-size: 13px;
+  font-weight: 600;
+  fill: var(--color-mta-ink);
+  /* paper-colored halo keeps labels readable over the grid */
+  paint-order: stroke;
+  stroke: var(--color-paper);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+.hm-label--xfer {
+  font-weight: 700;
+}
+
+/* a little train rides the hovered line (only where motion paths exist) */
+.hm-train {
+  display: none;
+}
+@supports (offset-path: path("M 0 0 H 1")) {
+  .hm-line.is-hot .hm-train {
+    display: block;
+    animation: hm-ride 5s ease-in-out infinite alternate;
+  }
+}
+@keyframes hm-ride {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hm-train {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reveal-on-scroll (IntersectionObserver driven; no JS animation library)
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+.reveal[data-shown="true"] {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
